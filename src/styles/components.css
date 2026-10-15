@@ -802,6 +802,31 @@
   .jc-catalog-section {
     padding: 2.5rem 0 3.5rem;
   }
+  .jc-occasion-label {
+    display: none;
+  }
+  .jc-occasion-modes {
+    width: 100%;
+    overflow-x: auto;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+    white-space: nowrap;
+  }
+  .jc-occasion-modes::-webkit-scrollbar {
+    display: none;
+  }
+  .jc-occasion-tab {
+    flex-shrink: 0;
+    padding: 0.85rem 1rem;
+    font-size: 11px;
+  }
+  .jc-occasion-manifesto {
+    padding: 0.85rem 0;
+  }
+  .jc-manifesto-text {
+    font-size: 0.95rem;
+    line-height: 1.45;
+  }
   /* Category filter strip horizontal scroll on mobile */
   .jc-category-filter-strip {
     flex-wrap: nowrap;
