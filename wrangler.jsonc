@@ -1,7 +1,5 @@
 {
   "name": "jaanam-collection",
-  "compatibility_date": "2026-10-12",
-  "assets": {
-    "directory": "./dist"
-  }
+  "pages_build_output_dir": "./dist",
+  "compatibility_date": "2026-10-12"
 }
