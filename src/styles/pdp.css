@@ -1,0 +1,369 @@
+/* ==========================================================================
+   JAANAM COLLECTION - PRODUCT DETAIL PAGE (PDP) & QUICK VIEW
+   High-Fashion Two-Column Stacked Gallery & Architectural Buy Box
+   ========================================================================== */
+
+.jc-pdp-modal {
+  width: 94vw;
+  max-width: 1240px;
+  max-height: 90vh;
+  background-color: var(--color-bg-primary);
+  border: 1px solid var(--color-border-hairline);
+  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.25);
+  margin: auto;
+  padding: 0;
+  overflow-y: auto;
+  position: relative;
+}
+
+.jc-pdp-close-btn {
+  position: sticky;
+  top: 1.5rem;
+  right: 1.5rem;
+  margin-left: auto;
+  z-index: 50;
+  width: 40px;
+  height: 40px;
+  background-color: var(--color-bg-surface);
+  border: 1px solid var(--color-border-hairline);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border-radius: var(--radius-micro);
+  transition: all var(--duration-instant) var(--ease-tactile);
+}
+
+.jc-pdp-close-btn:hover {
+  background-color: var(--color-text-primary);
+  color: var(--color-bg-surface);
+  border-color: var(--color-text-primary);
+}
+
+.jc-pdp-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  min-height: 100%;
+}
+
+/* LEFT COLUMN: Stacked High-Fashion Gallery */
+.jc-pdp-gallery {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  padding: 2.5rem;
+  background-color: var(--color-bg-elevated);
+  border-right: 1px solid var(--color-border-hairline);
+  overflow-y: auto;
+}
+
+.jc-pdp-image-wrap {
+  position: relative;
+  aspect-ratio: 3 / 4;
+  width: 100%;
+  overflow: hidden;
+  background-color: var(--color-bg-surface);
+  border: 1px solid var(--color-border-hairline);
+}
+
+.jc-pdp-image-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 400ms var(--ease-tactile);
+}
+
+.jc-pdp-image-wrap:hover img {
+  transform: scale(1.03);
+}
+
+/* RIGHT COLUMN: Architectural Buy Box */
+.jc-pdp-buybox {
+  padding: 2.75rem 2.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  overflow-y: auto;
+}
+
+.jc-pdp-header {
+  border-bottom: 1px solid var(--color-border-hairline);
+  padding-bottom: 1.25rem;
+}
+
+.jc-pdp-meta-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+}
+
+.jc-pdp-title {
+  font-family: var(--font-serif);
+  font-size: clamp(1.8rem, 2.5vw, 2.4rem);
+  color: var(--color-text-primary);
+  line-height: 1.15;
+  margin-bottom: 0.35rem;
+}
+
+.jc-pdp-subtitle {
+  font-size: 0.95rem;
+  color: var(--color-text-secondary);
+  line-height: 1.4;
+}
+
+.jc-pdp-price-row {
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.jc-pdp-price {
+  font-family: var(--font-sans);
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+.jc-pdp-original-price {
+  font-size: 1.1rem;
+  color: var(--color-text-muted);
+  text-decoration: line-through;
+}
+
+.jc-pdp-cod-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 3px 8px;
+  background-color: var(--color-accent-brass-light);
+  color: var(--color-accent-brass-hover);
+  border: 1px solid var(--color-accent-brass);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-weight: 600;
+  margin-left: auto;
+}
+
+/* Swatches Section */
+.jc-pdp-section-label {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.65rem;
+}
+
+.jc-pdp-color-picker {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.jc-pdp-color-option {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.4rem 0.8rem;
+  border: 1px solid var(--color-border-hairline);
+  background-color: var(--color-bg-surface);
+  cursor: pointer;
+  border-radius: var(--radius-micro);
+  font-size: 12px;
+  transition: all var(--duration-instant) var(--ease-tactile);
+}
+
+.jc-pdp-color-option.is-selected {
+  border-color: var(--color-text-primary);
+  background-color: var(--color-bg-primary);
+}
+
+.jc-pdp-color-swatch-circle {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+/* Size Selector & Stock Alert */
+.jc-pdp-size-picker {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.jc-pdp-size-btn {
+  min-width: 44px;
+  height: 44px;
+  padding: 0 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--color-border-hairline);
+  background-color: var(--color-bg-surface);
+  color: var(--color-text-primary);
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all var(--duration-instant) var(--ease-tactile);
+}
+
+.jc-pdp-size-btn:hover {
+  border-color: var(--color-text-primary);
+}
+
+.jc-pdp-size-btn.is-selected {
+  background-color: var(--color-text-primary);
+  color: var(--color-bg-surface);
+  border-color: var(--color-text-primary);
+}
+
+.jc-pdp-size-btn.is-disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+  text-decoration: line-through;
+}
+
+.jc-pdp-stock-alert {
+  font-size: 11px;
+  color: #B5603A;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-top: 0.4rem;
+}
+
+/* PDP Actions */
+.jc-pdp-actions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 0.5rem;
+}
+
+.jc-pdp-btn-add {
+  flex-grow: 1;
+  padding: 1.1rem 2rem;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.jc-pdp-btn-wishlist {
+  width: 52px;
+  height: 52px;
+  border: 1px solid var(--color-border-hairline);
+  background-color: var(--color-bg-surface);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border-radius: var(--radius-micro);
+  transition: all var(--duration-instant) var(--ease-tactile);
+}
+
+.jc-pdp-btn-wishlist:hover,
+.jc-pdp-btn-wishlist.is-active {
+  color: var(--color-error);
+  border-color: var(--color-error);
+}
+
+/* Collapsible Luxury Accordions */
+.jc-pdp-accordions {
+  border-top: 1px solid var(--color-border-hairline);
+  margin-top: 1rem;
+}
+
+.jc-accordion-item {
+  border-bottom: 1px solid var(--color-border-hairline);
+}
+
+.jc-accordion-trigger {
+  width: 100%;
+  padding: 1rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  text-align: left;
+  font-family: var(--font-sans);
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  font-weight: 500;
+  color: var(--color-text-primary);
+  cursor: pointer;
+}
+
+.jc-accordion-trigger .jc-accordion-icon {
+  transition: transform var(--duration-fast) var(--ease-tactile);
+}
+
+.jc-accordion-item.is-open .jc-accordion-icon {
+  transform: rotate(180deg);
+}
+
+.jc-accordion-content {
+  display: none;
+  padding-bottom: 1.25rem;
+  font-size: 0.9rem;
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+}
+
+.jc-accordion-item.is-open .jc-accordion-content {
+  display: block;
+}
+
+.jc-measurement-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 0.75rem;
+  font-size: 12px;
+}
+
+.jc-measurement-table th,
+.jc-measurement-table td {
+  padding: 0.5rem;
+  text-align: left;
+  border-bottom: 1px solid var(--color-border-hairline);
+}
+
+.jc-measurement-table th {
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-text-primary);
+}
+
+/* Sticky Bottom Buy Bar on Mobile Screens */
+.jc-mobile-sticky-bar {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: var(--color-bg-surface);
+  border-top: 1px solid var(--color-border-hairline);
+  padding: 0.75rem 1.25rem;
+  z-index: 90;
+  box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.08);
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+@media (max-width: 900px) {
+  .jc-pdp-grid {
+    grid-template-columns: 1fr;
+  }
+  .jc-pdp-gallery {
+    padding: 1.5rem;
+    border-right: none;
+    border-bottom: 1px solid var(--color-border-hairline);
+  }
+  .jc-pdp-buybox {
+    padding: 1.5rem;
+  }
+  .jc-mobile-sticky-bar {
+    display: flex;
+  }
+}

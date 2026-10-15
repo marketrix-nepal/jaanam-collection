@@ -1,0 +1,12 @@
+/* ==========================================================================
+   JAANAM COLLECTION - MASTER STYLESHEET ENTRY
+   ========================================================================== */
+
+@import './variables.css';
+@import './base.css';
+@import './layout.css';
+@import './components.css';
+@import './drapeStudio.css';
+@import './accents.css';
+@import './pdp.css';
+@import './drawer.css';

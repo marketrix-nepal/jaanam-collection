@@ -1,0 +1,361 @@
+/* ==========================================================================
+   JAANAM COLLECTION - FEATURE 1: "THE CAPSULE WARDROBE" BUILDER
+   Interactive Split-Canvas Mix & Match Dressing Tool
+   ========================================================================== */
+
+.jc-capsule-section {
+  padding: 6rem 0;
+  background-color: var(--color-bg-primary);
+  border-top: 1px solid var(--color-border-hairline);
+  border-bottom: 1px solid var(--color-border-hairline);
+}
+
+.jc-capsule-intro {
+  text-align: center;
+  max-width: 680px;
+  margin: 0 auto 3.5rem;
+}
+
+.jc-capsule-intro .meta-label {
+  margin-bottom: 0.75rem;
+  display: block;
+}
+
+.jc-capsule-intro h2 {
+  margin-bottom: 0.75rem;
+}
+
+/* Split-Canvas Architecture */
+.jc-capsule-canvas-wrapper {
+  background-color: var(--color-bg-surface);
+  border: 1px solid var(--color-border-hairline);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.03);
+  position: relative;
+}
+
+.jc-capsule-split-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  position: relative;
+}
+
+.jc-capsule-split-grid::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 1px;
+  background-color: var(--color-border-hairline);
+  z-index: 10;
+}
+
+/* Individual Layer Canvas (Left: Top/Outerwear, Right: Bottom/Bag) */
+.jc-capsule-panel {
+  display: flex;
+  flex-direction: column;
+  padding: 2.5rem;
+  position: relative;
+}
+
+.jc-capsule-panel-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--color-border-hairline);
+}
+
+.jc-capsule-layer-badge {
+  font-family: var(--font-sans);
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--color-accent-brass);
+}
+
+.jc-capsule-category-switch {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.jc-capsule-cat-tab {
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-text-secondary);
+  padding: 0.25rem 0.6rem;
+  border: 1px solid var(--color-border-hairline);
+  background: transparent;
+  transition: all var(--duration-instant) var(--ease-tactile);
+}
+
+.jc-capsule-cat-tab.is-active {
+  background-color: var(--color-text-primary);
+  color: var(--color-bg-surface);
+  border-color: var(--color-text-primary);
+}
+
+/* Image Visual Stage & Carousel Arrows */
+.jc-capsule-visual-stage {
+  position: relative;
+  aspect-ratio: 3 / 4;
+  background-color: var(--color-bg-elevated);
+  overflow: hidden;
+  margin-bottom: 1.75rem;
+  border: 1px solid var(--color-border-hairline);
+}
+
+.jc-capsule-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: opacity 250ms var(--ease-tactile), transform 350ms var(--ease-tactile);
+}
+
+.jc-capsule-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 42px;
+  height: 42px;
+  background-color: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid var(--color-border-hairline);
+  color: var(--color-text-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 5;
+  cursor: pointer;
+  transition: all var(--duration-instant) var(--ease-tactile);
+}
+
+.jc-capsule-arrow:hover {
+  background-color: var(--color-text-primary);
+  color: var(--color-bg-surface);
+  border-color: var(--color-text-primary);
+}
+
+.jc-capsule-arrow-prev {
+  left: 12px;
+}
+
+.jc-capsule-arrow-next {
+  right: 12px;
+}
+
+.jc-capsule-index-indicator {
+  position: absolute;
+  bottom: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(26, 26, 26, 0.85);
+  color: #FFFFFF;
+  padding: 3px 10px;
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  font-family: var(--font-sans);
+  z-index: 5;
+}
+
+/* Layer Spec Controls (Title, Price, Color, Size) */
+.jc-capsule-specs {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.jc-capsule-title-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.jc-capsule-item-title {
+  font-family: var(--font-serif);
+  font-size: 1.4rem;
+  color: var(--color-text-primary);
+}
+
+.jc-capsule-item-price {
+  font-family: var(--font-sans);
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  white-space: nowrap;
+}
+
+.jc-capsule-item-fabric {
+  font-size: 12px;
+  color: var(--color-text-muted);
+}
+
+/* Swatches & Size Toggles */
+.jc-capsule-swatch-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--color-border-hairline);
+}
+
+.jc-capsule-swatches {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.jc-capsule-color-chip {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  position: relative;
+  transition: transform var(--duration-instant) var(--ease-tactile);
+}
+
+.jc-capsule-color-chip.is-selected {
+  outline: 2px solid var(--color-accent-brass);
+  outline-offset: 2px;
+}
+
+.jc-capsule-sizes {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.jc-capsule-size-chip {
+  font-size: 11px;
+  padding: 4px 8px;
+  border: 1px solid var(--color-border-hairline);
+  background-color: transparent;
+  color: var(--color-text-secondary);
+  cursor: pointer;
+  transition: all var(--duration-instant) var(--ease-tactile);
+}
+
+.jc-capsule-size-chip.is-selected {
+  background-color: var(--color-text-primary);
+  color: var(--color-bg-surface);
+  border-color: var(--color-text-primary);
+}
+
+/* ==========================================================================
+   CAPSULE SYNCHRONIZATION FOOTER (HUD)
+   ========================================================================== */
+.jc-capsule-hud {
+  background-color: var(--color-bg-primary);
+  border-top: 1px solid var(--color-border-hairline);
+  padding: 1.75rem 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.jc-capsule-hud-note {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.jc-capsule-synergy-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 4px 10px;
+  background-color: var(--color-accent-brass-light);
+  color: var(--color-accent-brass-hover);
+  border: 1px solid var(--color-accent-brass);
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.jc-capsule-hud-text {
+  font-family: var(--font-serif);
+  font-size: 1.15rem;
+  font-style: italic;
+  color: var(--color-text-secondary);
+}
+
+.jc-capsule-hud-actions {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.jc-capsule-total-group {
+  text-align: right;
+}
+
+.jc-capsule-total-label {
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+.jc-capsule-total-price {
+  font-family: var(--font-sans);
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+.jc-btn-shuffle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.85rem 1.25rem;
+  border: 1px solid var(--color-border-hairline);
+  background-color: var(--color-bg-surface);
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--color-text-primary);
+  border-radius: var(--radius-micro);
+}
+
+.jc-btn-shuffle:hover {
+  border-color: var(--color-accent-brass);
+  color: var(--color-accent-brass);
+}
+
+/* Responsive Capsule Layout */
+@media (max-width: 992px) {
+  .jc-capsule-split-grid {
+    grid-template-columns: 1fr;
+  }
+  .jc-capsule-split-grid::after {
+    display: none;
+  }
+  .jc-capsule-panel:first-child {
+    border-bottom: 1px solid var(--color-border-hairline);
+  }
+  .jc-capsule-panel {
+    padding: 1.5rem;
+  }
+  .jc-capsule-hud {
+    padding: 1.5rem;
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .jc-capsule-hud-actions {
+    flex-direction: column;
+    width: 100%;
+  }
+  .jc-capsule-total-group {
+    text-align: center;
+  }
+}
